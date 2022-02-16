@@ -23,6 +23,7 @@ public class DestinationReport implements Chain {
     public void getReport(String request) {
         if (request.equals("Destination report")) {
             travelSegmentList = travelSegmentDAO.retrieveTravelSegmentByDestinationFrequency();
+            System.out.println("DESTINATION REPORT");
             System.out.println("The destinations travelled to from most to least are as follows: ");
             for (TravelSegment travelSegment : travelSegmentList) {
                 System.out.println(travelSegment.getDestination().getCountry() + ", " + travelSegment.getDestination().getCity() +

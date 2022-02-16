@@ -19,7 +19,7 @@ public class TravelPlan {
     @Column(name = "duration", nullable = false)
     private int duration;
 
-    @OneToMany(mappedBy = "travelPlan", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "travelPlan", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<TravelSegment> travelSegments;
 
     public TravelPlan() {

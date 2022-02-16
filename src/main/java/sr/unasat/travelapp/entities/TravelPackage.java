@@ -11,11 +11,11 @@ public class TravelPackage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long travelPackageId;
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.REMOVE)
     @JoinColumn(name = "travel_group_id", nullable = false, unique = true)
     private TravelGroup travelGroup;
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.REMOVE)
     @JoinColumn(name = "travel_plan_id", nullable = false, unique = true)
     private TravelPlan travelPlan;
 

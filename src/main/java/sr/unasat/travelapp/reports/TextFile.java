@@ -30,10 +30,11 @@ public class TextFile implements File {
         System.out.println("The following is a text report of the travel package created by user " + account.getUsername() + ".");
         System.out.println("The user has booked a trip from " + travelPlan.getStartDate() + " until " + travelPlan.getEndDate() +
                 " for a duration of " + travelPlan.getDuration() + " days.");
-        System.out.println("The travelers on this trip will be " + getTravelerNames() + " for a total of " +
-                travelGroup.getTravelerCount() + " travelers.");
-        System.out.println("The locations that will be visited are " + getLocations());
-
+        if (travelers != null) {
+            System.out.println("The travelers on this trip will be " + getTravelerNames() + " for a total of " +
+                    travelGroup.getTravelerCount() + " travelers.");
+            System.out.println("The locations that will be visited are " + getLocations());
+        }
         System.out.println("Enjoy your trip ;-) \n");
         System.out.println("----------End of report----------");
 

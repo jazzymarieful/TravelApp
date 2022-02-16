@@ -14,7 +14,7 @@ public class TravelGroup {
     @Column(name = "traveler_count", nullable = false)
     private int travelerCount;
 
-    @OneToMany(mappedBy = "travelGroup", fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @OneToMany(mappedBy = "travelGroup", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Traveler> travelers;
 
     public TravelGroup() {

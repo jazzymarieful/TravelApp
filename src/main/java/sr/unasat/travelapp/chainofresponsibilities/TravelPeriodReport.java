@@ -23,7 +23,7 @@ public class TravelPeriodReport implements Chain {
     @Override
     public void getReport(String request) {
         if (request.equals("Period report")) {
-            System.out.println("the travel periods are...");
+            System.out.println("TRAVEL PERIOD REPORT");
             travelPlanList = travelPlanDAO.retrieveTravelPlans();
 
             for (int index = 0; index < travelPlanList.size(); index++) {

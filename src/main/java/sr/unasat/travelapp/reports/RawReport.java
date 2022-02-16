@@ -29,15 +29,15 @@ public class RawReport implements Report {
     public void displayReport() {
         System.out.println("RAW REPORT OF TRAVEL PACKAGE");
         System.out.println("Travel group in travel package:");
-        System.out.println(travelPackage.getTravelGroup());
+        System.out.println(travelGroup);
         System.out.println("Travelers in travel package:");
-        System.out.println(travelPackage.getTravelGroup().getTravelers());
+        System.out.println(travelers);
         System.out.println();
         System.out.println("Travel plan in travel package:");
-        System.out.println(travelPackage.getTravelPlan());
+        System.out.println(travelPlan);
         System.out.println();
         System.out.println("Travel segments in travel package:");
-        System.out.println(travelPackage.getTravelPlan().getTravelSegments());
+        System.out.println(travelSegments);
         System.out.println("----------End of report----------");
     }
 }

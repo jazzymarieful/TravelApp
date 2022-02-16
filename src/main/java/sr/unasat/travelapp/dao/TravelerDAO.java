@@ -28,6 +28,16 @@ public class TravelerDAO {
         return traveler;
     }
 
+    public Traveler findLastTravelerRecord() {
+        entityManager.getTransaction().begin();
+        String jpql = "select t from Traveler t order by t.travelerId desc";
+        TypedQuery<Traveler> query = entityManager.createQuery(jpql, Traveler.class);
+        List<Traveler> travelerList = query.setMaxResults(1).getResultList();
+        Traveler lastTraveler = travelerList.get(0);
+        entityManager.getTransaction().commit();
+        return lastTraveler;
+    }
+
     public Traveler findTravelerByName(String firstName, String lastName) {
         entityManager.getTransaction().begin();
         String jpql = "select t from Traveler t where t.firstName = :firstName and t.lastName = :lastName";
@@ -100,6 +110,5 @@ public class TravelerDAO {
         entityManager.getTransaction().commit();
         return rowsDeleted;
     }
-
 
 }

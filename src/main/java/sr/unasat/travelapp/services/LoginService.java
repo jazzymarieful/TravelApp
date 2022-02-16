@@ -182,17 +182,11 @@ public class LoginService {
             switch (selection) {
                 case "1":
                     System.out.println("You choose: Tour");
-                    TravelGroupCreator travelGroupCreator = TravelPackageFactory.createTravelGroup(Integer.parseInt(selection));
-                    TravelPlanCreator travelPlanCreator = TravelPackageFactory.createTravelPlan(Integer.parseInt(selection));
-                    TravelPackageCreator travelPackageCreator = TravelPackageFactory.createTravelPackage(Integer.parseInt(selection));
-
-                    travelGroupCreator.addTravelGroupToDatabase();
-                    travelPlanCreator.addTravelPlanToDatabase();
-                    latestTravelPackageFromAccount = travelPackageCreator.addTravelPackageToDatabase(account);
+                    travelPackageCreator(selection);
                     inCreateTravelPackage = false;
                     break;
                 case "2":
-                    System.out.println("Budget travel not available yet \n");
+                    System.out.println("You choose: Budget travel");
                     break;
                 case "0":
                     inCreateTravelPackage = false;
@@ -203,12 +197,23 @@ public class LoginService {
             }
         } while (inCreateTravelPackage);
         //test entity ophaal probleem
-        System.out.println(latestTravelPackageFromAccount);
-        System.out.println("Test: " + travelGroupDAO.findLastTravelGroupRecord());
+//        System.out.println("OVERVIEW OF TRAVEL PACKAGE");
+//        System.out.println(latestTravelPackageFromAccount);
+//        System.out.println("Test: " + travelerDAO.findLastTravelerRecord());
         System.out.println("----------Exiting Travel Package Creator---------- \n");
         inCreateTravelPackage = true;
-
     }
+
+    public void travelPackageCreator(String selection) {
+        TravelGroupCreator travelGroupCreator = TravelPackageFactory.createTravelGroup(Integer.parseInt(selection));
+        TravelPlanCreator travelPlanCreator = TravelPackageFactory.createTravelPlan(Integer.parseInt(selection));
+        TravelPackageCreator travelPackageCreator = TravelPackageFactory.createTravelPackage(Integer.parseInt(selection));
+
+        travelGroupCreator.addTravelGroupToDatabase();
+        travelPlanCreator.addTravelPlanToDatabase();
+        latestTravelPackageFromAccount = travelPackageCreator.addTravelPackageToDatabase(account);
+    }
+
 
     public void manageTravelerData() {
         String selection;
